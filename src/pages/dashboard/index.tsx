@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { UserButton, useAuth } from '@clerk/nextjs';
 
-import { teamList } from '../constants/team';
+import { teamList } from '../../constants/team';
 
 export default function Page() {
   const { userId } = useAuth();
