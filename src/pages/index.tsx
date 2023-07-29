@@ -1,9 +1,4 @@
-import {
-  RedirectToSignIn,
-  RedirectToUserProfile,
-  SignedIn,
-  SignedOut
-} from '@clerk/nextjs';
+import { RedirectToUserProfile, SignedIn } from '@clerk/nextjs';
 import Head from 'next/head';
 
 export default function Home() {
