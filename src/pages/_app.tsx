@@ -1,18 +1,18 @@
-import { type AppType } from "next/app";
-import { api } from "~/utils/api";
-import "~/styles/globals.css";
-import { ClerkProvider, SignedIn, SignIn, SignedOut } from '@clerk/nextjs'
-
+import { type AppType } from 'next/app';
+import { api } from '~/utils/api';
+import '~/styles/globals.css';
+import { ClerkProvider, RedirectToSignIn, SignedOut } from '@clerk/nextjs';
 
 const MyApp: AppType = ({ Component, pageProps }) => {
-  const secret = process.env.CLERK_SECRET_KEY;
-  const secretTwo = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-  
-  return <ClerkProvider>
-              <Component {...pageProps} />
+  return (
+    <ClerkProvider {...pageProps}>
+      <Component {...pageProps} />
 
-            
-         </ClerkProvider>;
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
+    </ClerkProvider>
+  );
 };
 
 export default api.withTRPC(MyApp);
